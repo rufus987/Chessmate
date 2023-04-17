@@ -3,7 +3,10 @@ package org.example;
 import java.util.Scanner;
 
 public class Main {
-
+    /**
+     * Метод - расстановка фигур
+     * @return возвращает доску с раставленными фигурами
+     */
     public static ChessBoard buildBoard() {
         ChessBoard board = new ChessBoard("White");
 

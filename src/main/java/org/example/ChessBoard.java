@@ -1,17 +1,39 @@
 package org.example;
-
+/**
+ * Класс, описывающий шахматную доску
+ * @autor Евгений Лещенко
+ * @version 0.0.3
+ */
 public class ChessBoard {
+    /**
+     * Создание объекта шахматной доски 8х8
+     */
     public ChessPiece[][] board = new ChessPiece[8][8]; // creating a field for game
-    String nowPlayer;
 
+    /** поле - текущий игрок */
+     String nowPlayer;
+
+    /** конструктор доски */
     public ChessBoard(String nowPlayer) {
         this.nowPlayer = nowPlayer;
     }
 
+    /**
+     * геттер цвета текущего игрока
+     * @return цвет
+     */
     public String nowPlayerColor() {
         return this.nowPlayer;
     }
 
+    /**
+     * метод возможности перемещения
+     * @param startLine - начальная позиция по горизонтали
+     * @param startColumn- начальная позиция по вертикали
+     * @param endLine - конечная позиция по горизонтали
+     * @param endColumn конечная позиция по вертикали
+     * @return true,false
+     */
     public boolean moveToPosition(int startLine, int startColumn, int endLine, int endColumn) {
         if (checkPos(startLine) && checkPos(startColumn)) {
 
@@ -33,6 +55,9 @@ public class ChessBoard {
         } else return false;
     }
 
+    /**
+     * Метод выводящий доску на экран
+     */
     public void printBoard() {  //print board in console
         System.out.println("Turn " + nowPlayer);
         System.out.println();
@@ -58,6 +83,10 @@ public class ChessBoard {
         return pos >= 0 && pos <= 7;
     }
 
+    /**
+     * Метод, проверяющий на возможность роккировки белого короля.
+     * @return булево
+     */
     public boolean castling0() {
         if (nowPlayer.equals("White")) {
             if (board[0][0] == null || board[0][4] == null) return false;
@@ -96,6 +125,10 @@ public class ChessBoard {
         }
     }
 
+    /**
+     * Метод, проверяющий на возможность роккировки черного короля
+     * @return булево значение
+     */
     public boolean castling7() {
         if (nowPlayer.equals("White")) {
             if (board[0][7] == null || board[0][4] == null) return false;

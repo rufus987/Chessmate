@@ -1,5 +1,10 @@
 package org.example;
 
+/**
+ * Класс, описывающий короля
+ * @autor Евгений Лещенко
+ * @version 0.0.2
+ */
 public class King extends ChessPiece{
     public King(String color) {
         super(color);
@@ -29,6 +34,13 @@ public class King extends ChessPiece{
         return "K";
     }
 
+    /**
+     * Метод, проверяющий короля на шах
+     * @param chessBoard - объект доски
+     * @param line - позиция короля по горизонтали
+     * @param column - позиция короля по вертикали
+     * @return - возвращает шах(?)
+     */
     public boolean isUnderAttack(ChessBoard chessBoard, int line, int column){
         if (checkPos(line) && checkPos(column)){
             for (int i = 0; i < 7; i++){
